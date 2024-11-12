@@ -1,0 +1,38 @@
+spring:
+  datasource:
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        default_batch_fetch_size: 100
+  main:
+    web-application-type: reactive
+  cloud:
+    gateway:
+      default-filters:
+        - PreserveHostHeader
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes:
+        - id: bulletin
+          uri: localhost:9090
+          predicates:
+            - Path=/members/**,/bulletins/**
+        - id: chatting
+          uri: ${AIKU_MAP_IP}
+          predicates:
+            - Path=/chatting/**
+
+logging:
+  level:
+    root: INFO
+  file:
+    name: /spring-log/application.log
