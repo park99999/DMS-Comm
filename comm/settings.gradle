@@ -2,4 +2,5 @@ rootProject.name = 'comm'
 include 'bulletin'
 include 'common'
 include 'gateway'
+include 'chatting'
 
