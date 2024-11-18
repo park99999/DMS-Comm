@@ -1,8 +1,12 @@
-package dms.domain;
+package dms;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class Member {
 
     @Column(name = "memberId")
@@ -11,4 +15,5 @@ public class Member {
     private Long id;
 
     private String memberName;
+
 }
