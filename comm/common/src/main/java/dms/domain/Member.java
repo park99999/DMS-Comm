@@ -1,7 +1,11 @@
 package dms.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Getter
+@NoArgsConstructor
 @Entity
 public class Member {
 
