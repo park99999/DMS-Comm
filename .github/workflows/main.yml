@@ -23,6 +23,7 @@ jobs:
           java-version: '17'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+        working-directory: ./comm
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
@@ -31,6 +32,7 @@ jobs:
       # 3. Gradle 빌드
       - name: Build with Gradle
         run: ./gradlew clean build
+        working-directory: ./comm
 
       # 4. Docker 로그인
       - name: Log in to Docker Hub
