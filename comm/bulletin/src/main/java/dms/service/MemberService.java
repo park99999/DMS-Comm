@@ -1,7 +1,7 @@
 package dms.service;
 
-import dms.Member;
-import dms.MemberRepository;
+import dms.domain.Member;
+import dms.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

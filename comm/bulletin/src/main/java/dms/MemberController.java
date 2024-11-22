@@ -1,5 +1,6 @@
 package dms;
 
+import dms.domain.Member;
 import dms.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

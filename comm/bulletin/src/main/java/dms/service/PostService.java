@@ -1,10 +1,10 @@
 package dms.service;
 
-import dms.Member;
+import dms.domain.Member;
 import dms.domain.Post;
 import dms.dto.PostRequestDto;
 import dms.dto.PostResponseDto;
-import dms.MemberRepository;
+import dms.domain.MemberRepository;
 import dms.PostRepository;
 import org.springframework.stereotype.Service;
 
