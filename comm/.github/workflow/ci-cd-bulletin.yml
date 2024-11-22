@@ -37,14 +37,14 @@ jobs:
       - name: Build and Push Docker image
         run: |
           # Docker 이미지 빌드
-          docker build -t your-dockerhub-username/bulletin:${{ github.sha }} ./bulletin
+          docker build -t park99999/bulletin:${{ github.sha }} ./bulletin
           
           # 태그 지정 (latest)
-          docker tag your-dockerhub-username/bulletin:${{ github.sha }} your-dockerhub-username/bulletin:latest
+          docker tag park99999/bulletin:${{ github.sha }} park99999/bulletin:latest
           
           # Docker Hub에 푸시
-          docker push your-dockerhub-username/bulletin:${{ github.sha }}
-          docker push your-dockerhub-username/bulletin:latest
+          docker park99999/bulletin:${{ github.sha }}
+          docker park99999/bulletin:latest
 
       # 6. EC2에 배포
       - name: Deploy to EC2 Bulletin
@@ -57,11 +57,11 @@ jobs:
             docker stop bulletin || true
             docker rm bulletin || true
 
-            docker pull your-dockerhub-username/bulletin:latest
+            docker pull park99999/bulletin:latest
 
             docker run -d -p 80:8080 \
               --name bulletin \
               -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
               -e SPRING_DATASOURCE_USERNAME=${{ secrets.MYSQL_USERNAME }} \
               -e SPRING_DATASOURCE_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
-              your-dockerhub-username/bulletin:latest
+              park99999/bulletin:latest
