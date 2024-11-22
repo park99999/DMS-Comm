@@ -14,7 +14,7 @@ public class ChatRoomMember {
     @Column(name = "chatRoomMemberId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long id;
+    private Long id; 
 
     @JoinColumn(name = "memberId")
     @ManyToOne(fetch = FetchType.LAZY)
