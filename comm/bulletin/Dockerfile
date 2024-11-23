@@ -1,9 +1,3 @@
-FROM openjdk:17-jdk
-
-ARG JAR_FILE=build/libs/bulletin.jar
-
-WORKDIR /app
-
-COPY ${JAR_FILE} app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM openjdk:17-jdk-slim
+COPY build/libs/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
