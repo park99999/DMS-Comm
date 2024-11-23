@@ -31,7 +31,7 @@ jobs:
         
       # 3. Gradle 빌드
       - name: Build with Gradle
-        run: ./gradlew clean build
+        run: ./gradlew :bulletin:build
         working-directory: ./comm
 
       # 4. Docker 로그인
