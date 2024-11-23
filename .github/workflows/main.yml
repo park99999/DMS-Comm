@@ -56,7 +56,7 @@ jobs:
 
       # 6. EC2에 배포
       - name: Deploy to EC2 Bulletin
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.3
         with:
           host: ${{ secrets.EC2_HOST_BULLETIN }}
           username: ${{ secrets.EC2_USERNAME_BULLETIN }}
@@ -65,11 +65,12 @@ jobs:
             docker stop bulletin || true
             docker rm bulletin || true
             docker pull park99999/bulletin:latest
-            
+      
             docker run -d -p 80:8080 \
-              --name bulletin \
-              -v /host/path/to/spring-log:/spring-log \
-              -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
-              -e SPRING_DATASOURCE_USERNAME=${{ secrets.MYSQL_USERNAME }} \
-              -e SPRING_DATASOURCE_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
-              park99999/bulletin:latest
+            --name bulletin \
+            -v /host/path/to/spring-log:/spring-log \
+            -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
+            -e SPRING_DATASOURCE_USERNAME=${{ secrets.MYSQL_USERNAME }} \
+            -e SPRING_DATASOURCE_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
+            park99999/bulletin:latest
+
