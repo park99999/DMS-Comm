@@ -63,14 +63,24 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-           docker pull park99999/bulletin:latest
+            # 기존 컨테이너 정지 및 삭제
             docker stop bulletin || true
             docker rm bulletin || true
-            
-            docker run -d \
+
+            # 최신 이미지 풀
+            docker pull park99999/bulletin:latest
+
+            # 환경 변수 설정 (export 사용)
+            export SPRING_DATASOURCE_URL="${{ secrets.MYSQL_URL }}"
+            export SPRING_DATASOURCE_USERNAME="${{ secrets.MYSQL_USERNAME }}"
+            export SPRING_DATASOURCE_PASSWORD="${{ secrets.MYSQL_PASSWORD }}"
+
+            # Docker 컨테이너 실행
+            docker run -d -p 80:8080 \
               --name bulletin \
-              -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
-              -e SPRING_DATASOURCE_USERNAME=${{ secrets.MYSQL_USERNAME }} \
-              -e SPRING_DATASOURCE_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
+              -v /host/path/to/spring-log:/spring-log \
+              -e SPRING_DATASOURCE_URL="${SPRING_DATASOURCE_URL}" \
+              -e SPRING_DATASOURCE_USERNAME="${SPRING_DATASOURCE_USERNAME}" \
+              -e SPRING_DATASOURCE_PASSWORD="${SPRING_DATASOURCE_PASSWORD}" \
               park99999/bulletin:latest
             
