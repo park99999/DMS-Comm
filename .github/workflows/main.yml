@@ -60,7 +60,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST_BULLETIN }}
           username: ${{ secrets.EC2_USERNAME_BULLETIN }}
-          key: ${{ secrets.EC2_SSH_KEY_BULLETIN }}
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
          
             docker stop bulletin || true
