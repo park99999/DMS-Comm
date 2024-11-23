@@ -61,12 +61,13 @@ jobs:
           host: ${{ secrets.EC2_HOST_BULLETIN }}
           username: ${{ secrets.EC2_USERNAME_BULLETIN }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
           script: |
             docker stop bulletin || true
             docker rm bulletin || true
             docker pull park99999/bulletin:latest
 
-            docker run -d -p 80:8080 \
+            docker run -d \
             --name bulletin \
             -v /host/path/to/spring-log:/spring-log \
             -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
