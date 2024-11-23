@@ -69,7 +69,6 @@ jobs:
             
             docker run -d \
               --name bulletin \
-              -v /host/path/to/spring-log:/spring-log \
               -e SPRING_DATASOURCE_URL=${{ secrets.MYSQL_URL }} \
               -e SPRING_DATASOURCE_USERNAME=${{ secrets.MYSQL_USERNAME }} \
               -e SPRING_DATASOURCE_PASSWORD=${{ secrets.MYSQL_PASSWORD }} \
