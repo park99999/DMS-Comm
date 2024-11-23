@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService; 
+    private final MemberService memberService;  
 
     @PostMapping
     public ResponseEntity<Member> createMember(@RequestBody Member member) {
