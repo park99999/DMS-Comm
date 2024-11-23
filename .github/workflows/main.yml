@@ -45,7 +45,7 @@ jobs:
       - name: Build and Push Docker image
         run: |
           # Docker 이미지 빌드
-          docker build -t park99999/bulletin:${{ github.sha }} ./bulletin/docker
+          docker build -t park99999/bulletin:${{ github.sha }} comm/bulletin
           
           # 태그 지정 (latest)
           docker tag park99999/bulletin:${{ github.sha }} park99999/bulletin:latest
