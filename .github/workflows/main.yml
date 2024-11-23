@@ -62,14 +62,9 @@ jobs:
           username: ${{ secrets.EC2_USERNAME_BULLETIN }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-         
             docker stop bulletin || true
             docker rm bulletin || true
-
-          
             docker pull park99999/bulletin:latest
-
-        
             docker run -d -p 80:8080 \
               --name bulletin \
               -v /host/path/to/spring-log:/spring-log \
