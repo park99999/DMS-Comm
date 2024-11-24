@@ -25,11 +25,11 @@ spring:
         - id: bulletin
           uri: ${BULLETIN_IP}
           predicates:
-            - Path=/members/**,/bulletins/**
+            - Path=/api/**
         - id: chatting
           uri: ${CHATTING_IP}
           predicates:
-            - Path=/chatting/**
+            - Path=/chatting/**,/members/{memberId}/chatRooms
 
 logging:
   level:
