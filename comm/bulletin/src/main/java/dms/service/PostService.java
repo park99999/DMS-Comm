@@ -4,7 +4,7 @@ import dms.domain.Member;
 import dms.domain.Post;
 import dms.dto.PostRequestDto;
 import dms.dto.PostResponseDto;
-import dms.domain.MemberRepository;
+import dms.MemberRepository;
 import dms.PostRepository;
 import org.springframework.stereotype.Service;
 
