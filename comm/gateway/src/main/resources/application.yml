@@ -29,7 +29,7 @@ spring:
         - id: chatting
           uri: ${CHATTING_IP}
           predicates:
-            - Path=/chatting/**,/members/**
+            - Path=/members/**,/chatting/**
 
 logging:
   level:
