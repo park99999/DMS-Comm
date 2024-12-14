@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
